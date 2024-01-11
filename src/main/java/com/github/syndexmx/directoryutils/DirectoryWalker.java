@@ -31,8 +31,8 @@ public class DirectoryWalker {
 
     public DirectoryCollector walkOverSubdirectories() throws Exception {
         StringBuilder addedDirectory = new StringBuilder(prefix + DIR_INTRO_BEFORE_NAME + "\n");
-        addedDirectory.append(prefix + cutDirectoryName(directoryName.toString()) + "\n" );
-        addedDirectory.append(prefix + DIR_INTRO_AFTER_NAME + "\n");
+        addedDirectory.append(prefix + cutDirectoryName(directoryName.toString()));
+        addedDirectory.append(DIR_INTRO_AFTER_NAME + "\n");
         StringBuilder addedFiles = new StringBuilder();
         for(File file : directoryName.listFiles()) {
             if(file.isDirectory()) {
@@ -55,7 +55,7 @@ public class DirectoryWalker {
                 if (isProcessedType) {
                     System.out.println(file.toString());
                 }
-                addedDirectory.append(prefix + "<li");
+                addedDirectory.append(prefix + "\t" + "<li");
                 if (isProcessedType) {
                     String flattenedPath = flattenPath(file.toString());
                     addedDirectory.append(" class=\"viewable\" onclick=\"showIt('" +
@@ -63,12 +63,12 @@ public class DirectoryWalker {
                     addedFiles.append(prepareFileToLog(file, flattenedPath));
                 }
                 addedDirectory.append(">" + "\n");
-                addedDirectory.append(prefix + file.getName() + "\n");
+                addedDirectory.append(prefix + "\t" + file.getName() + "\n");
                 addedDirectory.append(prefix + "\t" + "</li>" + "\n");
 
             }
         }
-        addedDirectory.append(prefix + DIR_OUTRO + "\t");
+        addedDirectory.append(prefix + DIR_OUTRO + "\n");
         return new DirectoryCollector(addedDirectory.toString(), addedFiles.toString());
     }
 

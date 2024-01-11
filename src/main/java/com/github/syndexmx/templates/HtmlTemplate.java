@@ -2,7 +2,8 @@ package com.github.syndexmx.templates;
 
 public class HtmlTemplate {
 
-    public static String HTML_START = "<html lang=\"en\">\n" +
+    public static String HTML_START = "<!DOCTYPE html>\n" +
+                                      "<html lang=\"en\">\n" +
                                       "<head>\n" +
                                       " <meta http-equiv=\"Content-Type\" content=\"text/html\"; charset=\"utf-8\">\n" +
                                       " <title></title>\n" +
